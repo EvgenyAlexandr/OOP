@@ -10,29 +10,29 @@ public class Hogwarts {
         this.transgression = transgression;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMagicPower() {
-        return magicPower;
-    }
-
-    public void setMagicPower(int magicPower) {
-        this.magicPower = magicPower;
-    }
-
-    public int getTransgression() {
-        return transgression;
-    }
-
-    public void setTransgression(int transgression) {
-        this.transgression = transgression;
-    }
+//    public String getName() {
+//        return name;
+//    }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public int getMagicPower() {
+//        return magicPower;
+//    }
+//
+//    public void setMagicPower(int magicPower) {
+//        this.magicPower = magicPower;
+//    }
+//
+//    public int getTransgression() {
+//        return transgression;
+//    }
+//
+//    public void setTransgression(int transgression) {
+//        this.transgression = transgression;
+//    }
 
     // Представление объекта
     @Override
