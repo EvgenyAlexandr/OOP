@@ -7,6 +7,7 @@ public class Slytherin extends Hogwarts {
     private int resourcefulness;    // Находчивость
     private int power;              // Властность
 
+    // Конструктор
     public Slytherin(String name, int magicPower, int transgression, int cunning, int determination, int ambition, int resourcefulness, int power) {
         super(name, magicPower, transgression);
         this.cunning = cunning;
@@ -15,6 +16,42 @@ public class Slytherin extends Hogwarts {
         this.resourcefulness = resourcefulness;
         this.power = power;
     }
+
+    public int getCunning() {
+        return cunning;
+    }
+
+    public int getDetermination() {
+        return determination;
+    }
+
+    public int getAmbition() {
+        return ambition;
+    }
+
+    public int getResourcefulness() {
+        return resourcefulness;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    // Сравнение студентов
+    public static void compareSlytherin(Slytherin first, Slytherin second){
+        int firstsum  = first.getCunning() + first.getDetermination()+ first.getAmbition() + first.getResourcefulness() + first.getPower();
+        int secondsum = second.getDetermination() + second.getAmbition() + first.getResourcefulness() + second.getCunning() + second.getPower();
+
+        if (firstsum>secondsum){
+            System.out.println(first.getName() + " лучший Слизеринец, чем " + second.getName());
+        } else if (firstsum == secondsum) {
+            System.out.println(first.getName() + " и " + second.getName() + " равны по силе");
+        }
+        else {
+            System.out.println(second.getName() + " лучший Слизеринец, чем " + first.getName());
+        }
+    }
+
 
     @Override
     public String toString() {

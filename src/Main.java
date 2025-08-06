@@ -28,6 +28,10 @@ public class Main {
         System.out.println(choy);
         System.out.println(drako);
 
-
+        System.out.println();
+        Gryffindor.compareGryffindor(hermione, ron);
+        Hufflepuff.compareHufflepuff(sedrik,jastin);
+        Ravenclaw.compareRavenclaw(padma,marcus);
+        Slytherin.compareSlytherin(graham,gregory);
     }
 }
