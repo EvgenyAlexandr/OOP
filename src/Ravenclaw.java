@@ -1,5 +1,5 @@
-public class Ravenclaw {
-    // Факультет - Когтевран — Ravenclaw
+// Факультет - Когтевран — Ravenclaw
+public class Ravenclaw  {
 
 
 }
