@@ -14,24 +14,26 @@ public class Hogwarts {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getMagicPower() {
         return magicPower;
-    }
-
-    public void setMagicPower(int magicPower) {
-        this.magicPower = magicPower;
     }
 
     public int getTransgression() {
         return transgression;
     }
 
-    public void setTransgression(int transgression) {
-        this.transgression = transgression;
+    // Сравнение магической силы студентов
+    public static void compareAnyStudents(Hogwarts first, Hogwarts second) {
+        int firstsum  = first.getMagicPower() + first.getTransgression();
+        int secondsum = second.getMagicPower() + second.getTransgression();
+
+        if (firstsum > secondsum) {
+            System.out.println(first.getName() + " обладает большей мощностью магии, чем " + second.getName());
+        } else if (firstsum == secondsum) {
+            System.out.println(first.getName() + " и " + second.getName() + " равны по силе");
+        } else {
+            System.out.println(second.getName() + " обладает большей мощностью магии, чем " + first.getName());
+        }
     }
 
     // Представление объекта

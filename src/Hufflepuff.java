@@ -40,6 +40,7 @@ public class Hufflepuff extends Hogwarts {
         }
     }
 
+    // Представление объекта
     @Override
     public String toString() {
         return super.toString() + ", Факультет=Пуффендуй" +
