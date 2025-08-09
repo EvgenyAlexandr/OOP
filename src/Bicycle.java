@@ -1,8 +1,9 @@
 //   Велосипед
-public class Bicycle {
+public class Bicycle extends Transport {
 
-    public String modelName; // Номер Модели
-    public int wheelsCount;  // Количество колес
+    public Bicycle(String modelName, int wheelsCount) {
+        super(modelName, wheelsCount);
+    }
 
     public void updateTyre() {
         System.out.println("Меняем покрышку");

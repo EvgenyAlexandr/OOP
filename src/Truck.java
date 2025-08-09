@@ -1,8 +1,9 @@
 // Грузовик
-public class Truck {
+public class Truck extends Transport {
 
-    public String modelName; // Номер Модели
-    public int wheelsCount;  // Количество колес
+    public Truck(String modelName, int wheelsCount) {
+        super(modelName, wheelsCount);
+    }
 
     public void updateTyre() {
         System.out.println("Меняем покрышку");
