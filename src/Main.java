@@ -3,12 +3,12 @@ public class Main {
 
         /// Исходные данные
         // Автомобили
-        Car car          = new Car();
-        Car car2         = new Car();
-        car.modelName    = "car1";
-        car2.modelName   = "car2";
-        car.wheelsCount  = 4;
-        car2.wheelsCount = 4;
+        Car car          = new Car("car1",4);
+        Car car2         = new Car("car1",4);
+//        car.modelName    = ;
+//        car2.modelName   = "car2";
+//        car.wheelsCount  = ;
+//        car2.wheelsCount = 4;
 
         // Грузовики
         Truck truck        = new Truck();

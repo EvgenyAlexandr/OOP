@@ -1,4 +1,4 @@
-///   Велосипед
+//   Велосипед
 public class Bicycle {
 
     public String modelName; // Номер Модели

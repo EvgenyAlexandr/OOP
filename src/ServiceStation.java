@@ -1,8 +1,8 @@
 public class ServiceStation {
     public void check(Car car, Bicycle bicycle, Truck truck) {
         if (car != null) {
-            System.out.println("Обслуживаем " + car.modelName);
-            for (int i = 0; i < car.wheelsCount; i++) {
+            System.out.println("Обслуживаем " + car.getModelName());
+            for (int i = 0; i < car.getWheelsCount(); i++) {
                 car.updateTyre();
             }
             car.checkEngine();
