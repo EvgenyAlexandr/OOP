@@ -1,5 +1,7 @@
 // Автомобиль
-public class Car extends Bicycle{
+//public class Car extends Bicycle{
+public class Car extends Transport{
+
 
     // Конструктор
     public Car(String modelName, int wheelsCount) {
@@ -8,7 +10,7 @@ public class Car extends Bicycle{
 
     @Override
     public void service() {
-        super.service();
+        updateTyre();
         checkEngine();
     }
 

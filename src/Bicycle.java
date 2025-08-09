@@ -10,10 +10,4 @@ public class Bicycle extends Transport {
     public void service(){
         updateTyre();
     }
-
-    private void updateTyre(){
-        for (int i = 0; i < this.getWheelsCount(); i++) {
-            System.out.println("Меняем покрышку");
-        }
-    }
 }

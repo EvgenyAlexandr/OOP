@@ -4,7 +4,7 @@ public class Main {
         /// Исходные данные
         // Автомобили
         Car car1         = new Car("car1",4);
-        Car car2         = new Car("car2",4);
+        Car car2         = new Car("car2",5);
 
         // Грузовики
         Truck truck1       = new Truck("truck1", 6);
@@ -12,7 +12,7 @@ public class Main {
 
         // Велосипеды
         Bicycle bicycle1     = new Bicycle("bicycle1",2);
-        Bicycle bicycle2     = new Bicycle("bicycle2",2);
+        Bicycle bicycle2     = new Bicycle("bicycle2",3);
 
         // СТО
         ServiceStation station = new ServiceStation();
