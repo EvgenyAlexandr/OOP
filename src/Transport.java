@@ -1,4 +1,4 @@
-public class Transport {
+public abstract class Transport implements Vehicle{
 
     private int wheelsCount;  // Количество колес
     private String modelName; // Номер Модели

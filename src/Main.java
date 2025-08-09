@@ -3,24 +3,26 @@ public class Main {
 
         /// Исходные данные
         // Автомобили
-        Car car          = new Car("car1",4);
-        Car car2         = new Car("car1",4);
+        Car car1         = new Car("car1",4);
+        Car car2         = new Car("car2",4);
 
         // Грузовики
-        Truck truck        = new Truck("truck1", 6);
+        Truck truck1       = new Truck("truck1", 6);
         Truck truck2       = new Truck("truck2",  8);
 
         // Велосипеды
-        Bicycle bicycle      = new Bicycle("bicycle1",2);
+        Bicycle bicycle1     = new Bicycle("bicycle1",2);
         Bicycle bicycle2     = new Bicycle("bicycle2",2);
 
         // СТО
         ServiceStation station = new ServiceStation();
-        station.check(car, null, null);
-        station.check(car2, null, null);
-        station.check(null, bicycle, null);
-        station.check(null, bicycle2, null);
-        station.check(null, null, truck);
-        station.check(null, null, truck2);
+        station.check(car1);
+        station.check(car2);
+
+        station.check(truck1);
+        station.check(truck2);
+
+        station.check(bicycle1);
+        station.check(bicycle2);
     }
 }
