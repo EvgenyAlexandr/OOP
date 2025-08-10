@@ -1,4 +1,4 @@
-public abstract class Transport implements Vehicle{
+public abstract class Transport {
 
     private int wheelsCount;  // Количество колес
     private String modelName; // Номер Модели
@@ -22,4 +22,6 @@ public abstract class Transport implements Vehicle{
 //        }
         System.out.println("Необходимо заменить покрышек = " + getWheelsCount());
     }
+
+    public abstract void service();
 }

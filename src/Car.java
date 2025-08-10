@@ -1,7 +1,5 @@
 // Автомобиль
-//public class Car extends Bicycle{
 public class Car extends Transport{
-
 
     // Конструктор
     public Car(String modelName, int wheelsCount) {

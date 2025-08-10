@@ -19,10 +19,10 @@ public class Main {
         station.check(car1);
         station.check(car2);
 
-//        station.check(truck1);
-//        station.check(truck2);
-//
-//        station.check(bicycle1);
-//        station.check(bicycle2);
+        station.check(truck1);
+        station.check(truck2);
+
+        station.check(bicycle1);
+        station.check(bicycle2);
     }
 }
