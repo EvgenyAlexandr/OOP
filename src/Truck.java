@@ -1,6 +1,6 @@
 // Грузовик
-public class Truck extends Car{
-
+public class Truck extends Transport{
+//public class Truck extends Transport {
     // Конструктор
     public Truck(String modelName, int wheelsCount) {
         super(modelName, wheelsCount);
@@ -8,11 +8,8 @@ public class Truck extends Car{
 
     @Override
     public void service() {
-        super.service();
+        updateTyre();
+        checkEngine();
         checkTrailer();
-    }
-
-    private void checkTrailer(){
-        System.out.println("Проверяем прицеп");
     }
 }

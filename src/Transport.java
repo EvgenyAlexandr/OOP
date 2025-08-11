@@ -1,13 +1,15 @@
 public abstract class Transport {
 
-    private int wheelsCount;  // Количество колес
     private String modelName; // Номер Модели
+    private int wheelsCount;  // Количество колес
 
+    // Конструктор
     public Transport(String modelName, int wheelsCount) {
         this.wheelsCount = wheelsCount;
-        this.modelName = modelName;
+        this.modelName   = modelName;
     }
 
+    // Геттеры
     public int getWheelsCount() {
         return wheelsCount;
     }
@@ -23,5 +25,15 @@ public abstract class Transport {
         System.out.println("Необходимо заменить покрышек = " + getWheelsCount());
     }
 
+
+    public void checkEngine(){
+        System.out.println("Проверяем двигатель");
+    }
+
+    public void checkTrailer(){
+        System.out.println("Проверяем прицеп");
+    }
+
+    // Абстрактный метод
     public abstract void service();
 }

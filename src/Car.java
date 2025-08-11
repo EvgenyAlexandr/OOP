@@ -11,8 +11,4 @@ public class Car extends Transport{
         updateTyre();
         checkEngine();
     }
-
-    private void checkEngine(){
-        System.out.println("Проверяем двигатель");
-    }
 }
