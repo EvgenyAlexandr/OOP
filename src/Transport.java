@@ -1,4 +1,4 @@
-public abstract class Transport {
+public abstract class Transport implements Vehicle {
 
     private String modelName; // Номер Модели
     private int wheelsCount;  // Количество колес
@@ -34,6 +34,4 @@ public abstract class Transport {
         System.out.println("Проверяем прицеп");
     }
 
-    // Абстрактный метод
-    public abstract void service();
 }
