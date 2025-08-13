@@ -1,5 +1,4 @@
 package org.skypro.skyshop.basket;
-
 import org.skypro.skyshop.product.Product;
 
 public class ProductBasket {
@@ -37,7 +36,6 @@ public class ProductBasket {
             Product p = storage[i];
             System.out.printf("- %s: %d руб.\n", p.getName(), p.getPrice());
         }
-        //System.out.println("Всего: " + getTotalCost() + " руб.");
     }
 
     // Метод, проверяющий продукт в корзине по имени
