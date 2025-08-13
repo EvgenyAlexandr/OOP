@@ -26,6 +26,31 @@ public class App {
         System.out.println();
         basket.printContents();
 
+        // 4. Получение стоимости корзины с несколькими товарами.
+        System.out.println();
+        System.out.println("Общая стоимость продуктов: " + basket.getTotalCost() + " руб.");
+        System.out.println();
+
+        // 5. Поиск товара, который есть в корзине.
+        System.out.println("Товар 'Сосиски': " + basket.containsProduct("Сосиски"));
+
+        // 6. Поиск товара, которого нет в корзине..
+        System.out.println("Товар 'Банан': " + basket.containsProduct("Банан"));
+
+        // 7. Очистка корзины.
+        System.out.println();
+        basket.clearBasket();
+
+        // 8. Печать содержимого пустой корзины.
+        System.out.println();
+        basket.printContents();
+
+        // 9. Получение стоимости пустой корзины.
+        System.out.println("Общая стоимость продуктов: " + basket.getTotalCost() + " руб.");
+
+        // 10. Поиск товара по имени в пустой корзине.
+        System.out.println();
+        System.out.println("Товар 'Сосиски': " + basket.containsProduct("Сосиски"));
 
     }
 }

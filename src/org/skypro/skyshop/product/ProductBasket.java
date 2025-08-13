@@ -35,7 +35,7 @@ public class ProductBasket {
             Product p = storage[i];
             System.out.printf("- %s: %d руб.\n", p.getName(), p.getPrice());
         }
-        System.out.println("Всего: " + getTotalCost() + " руб.");
+        //System.out.println("Всего: " + getTotalCost() + " руб.");
     }
 
     // Метод, проверяющий продукт в корзине по имени
@@ -54,6 +54,7 @@ public class ProductBasket {
         for (int i = 0; i < storage.length; i++) {
             storage[i] = null;
         }
+        System.out.println("Корзина очищена");
     }
 
 }
