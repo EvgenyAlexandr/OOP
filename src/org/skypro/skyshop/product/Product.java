@@ -15,7 +15,10 @@ abstract public class Product {
 
     // Абстрактный метод
     public abstract double getPrice();
+    public abstract boolean isSpecial();
 
+    @Override
+    public abstract String toString();
 }
 
 

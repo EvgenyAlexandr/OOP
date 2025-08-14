@@ -34,7 +34,7 @@ public class ProductBasket {
         System.out.println("Содержимое корзины:");
         for (int i = 0; i < count; i++) {
             Product p = storage[i];
-            System.out.printf("- %s: %.2f руб.\n", p.getName(), p.getPrice());
+            System.out.printf("%s: %.2f руб.\n", p.getName(), p.getPrice());
         }
     }
 
