@@ -15,7 +15,7 @@ public class App {
         Product product3 = new DiscountedProduct("Йогурт", 80.0, 15);
         Product product4 = new DiscountedProduct("Квас",  120.0, 10);
         Product product5 = new FixPriceProduct("Сосиски");
-        Product product6 = new SimpleProduct("Плавленный сыр",   20.40);
+        Product product6 = new FixPriceProduct("Плавленный сыр");
 
         ProductBasket basket = new ProductBasket();
 
