@@ -1,6 +1,8 @@
 package org.skypro.skyshop.basket;
 import org.skypro.skyshop.product.Product;
 
+import java.util.Arrays;
+
 public class ProductBasket {
 
     private final Product[] storage = new Product[5];   // Количество продуктов
@@ -16,8 +18,8 @@ public class ProductBasket {
     }
 
     // Метод получения общей стоимости корзины
-    public int getTotalCost() {
-        int total = 0;
+    public double getTotalCost() {
+        double total = 0;
         for (int i = 0; i < count; i++) {
             total += storage[i].getPrice();
         }
@@ -34,8 +36,11 @@ public class ProductBasket {
         System.out.println("Содержимое корзины:");
         for (int i = 0; i < count; i++) {
             Product p = storage[i];
-            System.out.printf("- %s: %d руб.\n", p.getName(), p.getPrice());
+            System.out.println(p.toString());
         }
+        System.out.println("Итого: " + getTotalCost());
+        // Вызываем метод - Подсчета количества товаров специального типа.
+        getCountSpecialProduct();
     }
 
     // Метод, проверяющий продукт в корзине по имени
@@ -48,12 +53,21 @@ public class ProductBasket {
         return false;
     }
 
-    // Метод очистки корзины
+    // Метод, Очистки корзины
     public void clearBasket() {
         count = 0;
-        for (int i = 0; i < storage.length; i++) {
-            storage[i] = null;
-        }
+        Arrays.fill(storage, null);
         System.out.println("Корзина очищена");
+    }
+
+    // Метод, подсчета количества товаров специального типа.
+    public void getCountSpecialProduct() {
+        int countSpecialProduct = 0;
+        for (Product product : storage) {
+            if (product != null && product.isSpecial()) {
+                countSpecialProduct++;
+            }
+        }
+        System.out.println("Специальных товаров: " + countSpecialProduct);
     }
 }
