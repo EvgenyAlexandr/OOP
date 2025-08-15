@@ -13,7 +13,7 @@ abstract public class Product {
         return name;
     }
 
-    // Абстрактный метод
+    // Абстрактные методы
     public abstract double getPrice();
     public abstract boolean isSpecial();
 
