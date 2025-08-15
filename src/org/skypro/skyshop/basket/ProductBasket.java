@@ -1,6 +1,8 @@
 package org.skypro.skyshop.basket;
 import org.skypro.skyshop.product.Product;
 
+import java.util.Arrays;
+
 public class ProductBasket {
 
     private final Product[] storage = new Product[5];   // Количество продуктов
@@ -54,17 +56,15 @@ public class ProductBasket {
     // Метод, Очистки корзины
     public void clearBasket() {
         count = 0;
-        for (int i = 0; i < storage.length; i++) {
-            storage[i] = null;
-        }
+        Arrays.fill(storage, null);
         System.out.println("Корзина очищена");
     }
 
     // Метод, подсчета количества товаров специального типа.
     public void getCountSpecialProduct() {
         int countSpecialProduct = 0;
-        for (int i = 0; i < storage.length; i++) {
-            if (storage[i] != null && storage[i].isSpecial()) {
+        for (Product product : storage) {
+            if (product != null && product.isSpecial()) {
                 countSpecialProduct++;
             }
         }
