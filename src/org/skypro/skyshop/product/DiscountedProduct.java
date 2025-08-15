@@ -1,7 +1,5 @@
 package org.skypro.skyshop.product;
 
-import java.util.Locale;
-
 public class DiscountedProduct extends Product {
     private final double basePrice; // Базовая цена
     private final int discount;     // Скидка
@@ -24,6 +22,6 @@ public class DiscountedProduct extends Product {
 
     @Override
     public String toString() {
-        return String.format(Locale.US, "%s: %.2f (%d%% скидка)", getName(), getPrice(), discount);
+        return String.format("%s: %.2f руб. (%d%% скидка)", getName(), getPrice(), discount);
     }
 }
