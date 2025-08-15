@@ -1,6 +1,6 @@
 package org.skypro.skyshop.product;
 
-abstract public class Product {
+public abstract class Product {
     private final String name;
 
     // Конструктор
