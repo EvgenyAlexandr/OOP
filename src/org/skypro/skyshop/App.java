@@ -1,10 +1,7 @@
 package org.skypro.skyshop;
 
-import org.skypro.skyshop.product.DiscountedProduct;
-import org.skypro.skyshop.product.FixPriceProduct;
-import org.skypro.skyshop.product.Product;
+import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
-import org.skypro.skyshop.product.SimpleProduct;
 
 public class App {
     public static void main(String[] args) {
@@ -59,6 +56,33 @@ public class App {
         System.out.println("Товар 'Сосиски': " + basket.containsProduct("Сосиски"));
 
         // ===============================
+        Article lemon   = new Article("Лимон","Растение вид рода Цитрус (Citrus) подтрибы Цитрусовые (Citrinae) семейства Рутовые (Rutaceae). Лимоном также называется плод (гесперидий) этого растения.");
+        Article loaf    = new Article("Батон","Распространённый вид булочных изделий наряду с плетёными изделиями, булками, сайками и булочной мелочью. Батоны производят из пшеничной муки высшего, 1-го и 2-го сортов.");
+        Article yogurt  = new Article("Йогурт","Кисломолочный продукт с повышенным содержанием сухих веществ, изготовляемый путём сквашивания протосимбиотической смесью чистых культур.");
+        Article kvass   = new Article("Квас","традиционный славянский и балтский кислый напиток, который готовят на основе брожения из ржаной муки и солода (ржаного, ячменного) или из сухого ржаного хлеба, иногда — с добавлением пахучих трав, мёда, пчелиных сот. Также квас могут готовить из свёклы, фруктов, ягод.");
+
+        // Класс для поиска по ключевому слову
+        SearchEngine list = new SearchEngine();
+        // Добавляем объекты в массив
+        list.addToSearchable(product1);
+        list.addToSearchable(product2);
+        list.addToSearchable(product3);
+        list.addToSearchable(product4);
+        list.addToSearchable(product5);
+
+        list.addToSearchable(lemon);
+        list.addToSearchable(loaf);
+        list.addToSearchable(yogurt);
+        list.addToSearchable(kvass);
+
+        //Проверяю все ли добавлено в массив
+        list.showSearchable();
+
+        // Поиск по ключевому слову
+        String keyword = "Лимон";
+        System.out.println("\nКлючевое слово для поиска: " + keyword);
+        System.out.println("Результат поиска:");
+        list.searchByKeyword(keyword);
 
     }
 }
