@@ -58,5 +58,7 @@ public class App {
         System.out.println();
         System.out.println("Товар 'Сосиски': " + basket.containsProduct("Сосиски"));
 
+        // ===============================
+
     }
 }
