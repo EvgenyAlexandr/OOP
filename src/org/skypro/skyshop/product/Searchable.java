@@ -1,7 +1,7 @@
 package org.skypro.skyshop.product;
 
 public interface Searchable {
-    // метод, который будет возвращать текст, по которому мы будем искать.
+    // метод, возврашаюший, искомый текст.
     String getSearchTerm();
     // Тип контента
     String getContentType();

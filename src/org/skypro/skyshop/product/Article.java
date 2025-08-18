@@ -1,6 +1,6 @@
 package org.skypro.skyshop.product;
 
-public class Article {
+public class Article implements Searchable {
     private final String articleName; 		// Название Статьи
     private final String articleText;		// Текст статьи
 
@@ -9,8 +9,19 @@ public class Article {
         this.articleText = articleText;
     }
 
+    // Представление объекта
     public String toString() {
         return "Название статьи: " + articleName + '\'' +
                "Текст статьи: " + articleText + '\'';
+    }
+
+    @Override
+    public String getSearchTerm() {
+        return articleName + ": " + articleText;
+    }
+
+    @Override
+    public String getContentType() {
+        return "ARTICLE";
     }
 }
