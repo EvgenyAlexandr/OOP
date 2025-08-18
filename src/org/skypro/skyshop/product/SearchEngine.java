@@ -1,0 +1,54 @@
+package org.skypro.skyshop.product;
+
+public class SearchEngine {
+    private final Searchable[] searchables; // Массив элементов для поиска
+    private int size;	                    // Количество элементов
+
+    // Конструктор
+    public SearchEngine() {
+        this.searchables = new Searchable[10];
+        size = 0;
+    }
+
+    // Поиск по ключевому слову
+    public Searchable[] searchByKeyword(String keyword) {
+        Searchable[] searchResult = new Searchable[5];
+        int count = 0;
+
+        for (Searchable searchable : searchables) {
+            if (searchable != null) {
+                String searchTerm = searchable.getSearchTerm();
+                if (searchTerm.toLowerCase().contains(keyword.toLowerCase())) {
+                    if (count < searchResult.length) {
+                        searchResult[count++] = searchable;
+                        System.out.println(searchable.getStringRepresentation());
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return searchResult;
+    }
+
+    // Добавление в массив
+    public void addToSearchable(Searchable searchable) {
+        if (size < searchables.length) {
+            searchables[size] = searchable;
+            size++;
+        } else {
+            System.out.println("Массив переполнен");
+        }
+    }
+
+    //  Отображаем все элементы массива
+    public void showSearchable() {
+        for (Searchable searchable : searchables) {
+            if (searchable != null) {
+                System.out.println(searchable.getStringRepresentation());
+            } else {
+                System.out.println("Пусто");
+            }
+        }
+    }
+}
