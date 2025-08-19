@@ -62,7 +62,7 @@ public class App {
         Article kvass   = new Article("Квас","традиционный славянский и балтский кислый напиток, который готовят на основе брожения из ржаной муки и солода (ржаного, ячменного) или из сухого ржаного хлеба, иногда — с добавлением пахучих трав, мёда, пчелиных сот. Также квас могут готовить из свёклы, фруктов, ягод.");
 
         // Класс для поиска по ключевому слову
-        SearchEngine list = new SearchEngine();
+        SearchEngine list = new SearchEngine(10);
         // Добавляем объекты в массив
         list.addToSearchable(product1);
         list.addToSearchable(product2);

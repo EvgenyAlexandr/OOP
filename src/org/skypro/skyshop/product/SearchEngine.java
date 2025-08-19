@@ -5,9 +5,12 @@ public class SearchEngine {
     private int size;	                    // Количество элементов
 
     // Конструктор
-    public SearchEngine() {
-        this.searchables = new Searchable[10];
-        size = 0;
+    public SearchEngine(int capacity) {
+        if (capacity <= 0) {
+            throw new IllegalArgumentException("Размер массива должен быть положительным числом");
+        }
+        this.searchables = new Searchable[capacity];
+        this.size = 0;
     }
 
     // Поиск по ключевому слову
