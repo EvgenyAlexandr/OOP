@@ -1,10 +1,15 @@
 package org.skypro.skyshop.product;
 
 public abstract class Product implements Searchable {
-    private final String name;
+    private final String name; //
 
     // Конструктор
-    public Product(String name) {
+    public Product(String name) throws IllegalAccessException {
+        // Проверка на null и пустую строку
+        if (name == null || name.isBlank()){
+            throw new IllegalAccessException("Введено некорректное название продукта");
+        }
+
         this.name = name;
     }
 
