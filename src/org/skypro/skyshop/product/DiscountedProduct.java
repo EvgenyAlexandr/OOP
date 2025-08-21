@@ -7,16 +7,19 @@ public class DiscountedProduct extends Product {
     public DiscountedProduct(String name, double basePrice, int discount) throws IllegalAccessException {
         super(name);
 
-        //   Условие вызова исключения - Должно быть строго больше 0
-        if (basePrice <= 0.0) {
+        // Цена - Должна быть строго больше 0
+        if (basePrice > 0.0) {
+            this.basePrice = basePrice;
+        } else {
             throw new IllegalAccessException("Введена некорректная цена продукта");
         }
-        //  Условие вызова исключения - Должно быть в диапазоне 0-100 включительно
-        if (discount < 0.0 || discount > 100.0) {
+
+        //  Скидка - Должна быть в диапазоне 0-100 включительно
+        if (discount >= 0.0 || discount <= 100.0) {
+            this.discount = discount;
+        } else {
             throw new IllegalAccessException("Введена некорректная скидка на продукт");
         }
-        this.basePrice = basePrice;
-        this.discount = discount;
     }
 
     @Override
