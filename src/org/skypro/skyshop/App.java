@@ -4,7 +4,7 @@ import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
 
         // Продукты.
         Product product1 = new SimpleProduct("Лимон", 64.0);

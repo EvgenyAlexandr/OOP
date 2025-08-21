@@ -4,7 +4,7 @@ public class FixPriceProduct extends Product {
 
     private static final double FIXED_PRICE = 127.99; // Константа
 
-    public FixPriceProduct(String name) {
+    public FixPriceProduct(String name) throws IllegalAccessException {
         super(name);
     }
 
