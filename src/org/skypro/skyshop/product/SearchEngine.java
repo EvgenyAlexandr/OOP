@@ -1,5 +1,7 @@
 package org.skypro.skyshop.product;
 
+import org.skypro.skyshop.excrption.BestResultNotFound;
+
 public class SearchEngine {
     private final Searchable[] searchables; // Массив элементов для поиска
     private int size;	                    // Количество элементов
@@ -32,6 +34,32 @@ public class SearchEngine {
             }
         }
         return searchResult;
+    }
+
+    // Поиск самого подходящего элемента
+    public Searchable findBestMatch(String keyword) throws BestResultNotFound {
+        Searchable bestResult = null;
+        int found = 0;
+        for (Searchable searchable : searchables) {
+            if (searchable != null) {
+                String str = searchable.getSearchTerm().toLowerCase();
+                int score = 0;
+                int index = 0;
+                while ((index = str.indexOf(keyword.toLowerCase(), index)) != -1) {
+                    score++;
+                    index++;
+                }
+                if (score > found) {
+                    found = score;
+                    bestResult = searchable;
+                }
+            }
+        }
+        if (bestResult == null) {
+            throw new BestResultNotFound();
+        }
+        System.out.println(bestResult.getStringRepresentation());
+        return bestResult;
     }
 
     // Добавление в массив

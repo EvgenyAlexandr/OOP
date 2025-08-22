@@ -1,10 +1,11 @@
 package org.skypro.skyshop;
 
+import org.skypro.skyshop.excrption.BestResultNotFound;
 import org.skypro.skyshop.product.*;
 import org.skypro.skyshop.basket.ProductBasket;
 
 public class App {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) throws IllegalAccessException, BestResultNotFound {
         // Продукты.
         Product product1 = new SimpleProduct("Лимон", 64.0);
         Product product2 = new SimpleProduct("Батон", 54.0);
@@ -110,9 +111,24 @@ public class App {
             System.out.println(exceptions.getMessage());
         }
 
+        // Поиск самого подходящего элемента
+        System.out.println("\nПоиск самого подходящего элемента: " + keyword);
+        System.out.println("Результат поиска:");
+        try {
+            list.findBestMatch(keyword);
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
 
+        // Поиск элемента которого нет
+        keyword = "Мотоцикл";
+        System.out.println("\nПоиск того чего нет: " + keyword);
+        System.out.println("Результат поиска:");
+        try {
+            list.findBestMatch(keyword);
+        } catch (BestResultNotFound e) {
+            System.out.println(e.getMessage());
+        }
 
-    }
-
-
+   }
 }
