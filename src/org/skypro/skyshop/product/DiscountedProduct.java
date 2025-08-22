@@ -15,7 +15,7 @@ public class DiscountedProduct extends Product {
         }
 
         //  Скидка - Должна быть в диапазоне 0-100 включительно
-        if (discount >= 0.0 || discount <= 100.0) {
+        if (discount >= 0 && discount <= 100) {
             this.discount = discount;
         } else {
             throw new IllegalAccessException("Введена некорректная скидка на продукт");
