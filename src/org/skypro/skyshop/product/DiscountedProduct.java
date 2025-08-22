@@ -4,6 +4,7 @@ public class DiscountedProduct extends Product {
     private final double basePrice; // Базовая цена
     private final int discount;     // Скидка
 
+    // Конструктор
     public DiscountedProduct(String name, double basePrice, int discount) throws IllegalAccessException {
         super(name);
 
