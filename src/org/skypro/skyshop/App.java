@@ -85,6 +85,7 @@ public class App {
 
         // ===============================
         System.out.println("\nИсключения:");
+        // Демонстрация работы исключений.
         try {
             Product product7 = new SimpleProduct("Лимон", -64.0);
         } catch (IllegalAccessException exceptions) {
@@ -109,12 +110,7 @@ public class App {
             System.out.println(exceptions.getMessage());
         }
 
-//        } catch (IllegalAccessException exceptions) {
-//            System.out.println(exceptions.getMessage());
-//
-//        } finally {
-//            System.out.println("Проверка завершена");
-//        }
+
 
     }
 
