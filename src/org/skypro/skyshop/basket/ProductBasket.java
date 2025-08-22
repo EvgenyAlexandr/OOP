@@ -48,7 +48,7 @@ public class ProductBasket {
         return false;
     }
 
-    // Метод очистки корзины
+    // Метод, очистки корзины
     public void clearBasket() {
         count = 0;
         for (int i = 0; i < storage.length; i++) {
