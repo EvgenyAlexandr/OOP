@@ -13,7 +13,8 @@ public class ProductBasket {
 
     // Конструктор
     public ProductBasket() {
-        basket = new LinkedList<>();
+        //basket = new LinkedList<>();
+        basket = new ArrayList<>();
     }
 
 
@@ -36,20 +37,6 @@ public class ProductBasket {
 
     // Метод, который печатает содержимое корзины
     public void printContents() {
-//        if (count == 0) {
-//            System.out.println("Корзина пуста");
-//            return;
-//        }
-//
-//        System.out.println("Содержимое корзины:");
-//        for (int i = 0; i < count; i++) {
-//            Product p = storage[i];
-//            System.out.println(p.toString());
-//        }
-//        System.out.println("Итого: " + getTotalCost());
-//        // Вызываем метод - Подсчета количества товаров специального типа.
-//        getCountSpecialProduct();
-
         Iterator<Product> iterator = basket.iterator();
         while (iterator.hasNext()) {
             Product element = iterator.next();
@@ -60,22 +47,16 @@ public class ProductBasket {
 
     // Метод, проверяющий продукт в корзине по имени
     public boolean containsProduct(String name) {
-//        for (int i = 0; i < count; i++) {
-//            if (storage[i].getName().equals(name)) {
-//                return true;
-//            }
-//        }
-//        return false;
-
-        return basket.contains(name);
+        for (int i = 0; i < basket.size(); i++) {
+            if (basket.get(i).getName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // Метод, Очистки корзины
     public void clearBasket() {
-//        count = 0;
-//        Arrays.fill(storage, null);
-//        System.out.println("Корзина очищена");
-
         basket.clear();
         System.out.println("Корзина очищена");
 
