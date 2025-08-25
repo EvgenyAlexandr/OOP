@@ -43,6 +43,8 @@ public class ProductBasket {
             System.out.println(element);
         }
         System.out.println("Итого: " + getTotalCost());
+        // Вызываем метод - Подсчета количества товаров специального типа.
+        getCountSpecialProduct();
     }
 
     // Метод, проверяющий продукт в корзине по имени
@@ -64,20 +66,12 @@ public class ProductBasket {
 
     // Метод, подсчета количества товаров специального типа.
     public void getCountSpecialProduct() {
-//        int countSpecialProduct = 0;
-//        for (Product product : storage) {
-//            if (product != null && product.isSpecial()) {
-//                countSpecialProduct++;
-//            }
-//        }
-//        System.out.println("Специальных товаров: " + countSpecialProduct);
-
         int countSpecialProduct = 0;
-        Iterator<Product> iterator = basket.iterator();
-        while (iterator.hasNext()) {
-            Product element = iterator.next(); // ...
-            countSpecialProduct++;
+        for (int i = 0; i < basket.size(); i++) {
+            if (basket.get(i).isSpecial()) {
+                countSpecialProduct++;
+            }
         }
-        System.out.println("Специальных товаров: " + countSpecialProduct); //
+        System.out.println("Специальных товаров: " + countSpecialProduct);
     }
 }

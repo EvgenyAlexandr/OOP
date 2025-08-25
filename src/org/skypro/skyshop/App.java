@@ -22,10 +22,10 @@ public class App {
         basket.addProduct(product3);
         basket.addProduct(product4);
         basket.addProduct(product5);
-//        // 2. Добавление продукта в заполненную корзину.
+        // 2. Добавление продукта в заполненную корзину.
         basket.addProduct(product6);
-//
-//        // 3. Печать содержимого корзины с несколькими товарами.
+
+        // 3. Печать содержимого корзины с несколькими товарами.
         System.out.println();
         basket.printContents();
 
