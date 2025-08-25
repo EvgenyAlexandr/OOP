@@ -1,7 +1,7 @@
 package org.skypro.skyshop.product;
 
 public abstract class Product implements Searchable {
-    private final String name; // Название продукта
+    private final String nameProduct; // Название продукта
 
     // Конструктор
     public Product(String name) throws IllegalAccessException {
@@ -9,13 +9,14 @@ public abstract class Product implements Searchable {
         if (name == null || name.isBlank()){
             throw new IllegalAccessException("Введено некорректное название продукта");
         }
-        this.name = name;
+        this.nameProduct = name;
     }
+
 
     // Геттеры
     @Override
-    public String getName() {
-        return name;
+    public String getNameProduct() {
+        return nameProduct;
     }
 
     // Абстрактные методы
@@ -27,7 +28,7 @@ public abstract class Product implements Searchable {
 
     @Override
     public String getSearchTerm() {
-        return name;
+        return nameProduct;
     }
 
     @Override

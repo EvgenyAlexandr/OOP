@@ -17,7 +17,7 @@ public class Article implements Searchable {
     }
 
     @Override
-    public String getName() {
+    public String getNameProduct() {
         return articleName;
     }
 

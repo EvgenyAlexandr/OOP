@@ -3,11 +3,7 @@ import org.skypro.skyshop.product.Product;
 
 import java.util.*;
 
-
 public class ProductBasket {
-
-//    private final Product[] storage = new Product[5];   // Количество продуктов
-//    private int count = 0;                              // Счетчик продуктов
 
     private final List<Product> basket;
 
@@ -16,7 +12,6 @@ public class ProductBasket {
         //basket = new LinkedList<>();
         basket = new ArrayList<>();
     }
-
 
     // Метод добавления продукта в корзину
     public void addProduct(Product product) {
@@ -49,8 +44,10 @@ public class ProductBasket {
 
     // Метод, проверяющий продукт в корзине по имени
     public boolean containsProduct(String name) {
-        for (int i = 0; i < basket.size(); i++) {
-            if (basket.get(i).getName().equals(name)) {
+        Iterator<Product> iterator = basket.iterator();
+        while (iterator.hasNext()) {
+            Product element = iterator.next();
+            if (element.getNameProduct().equals(name)) {
                 return true;
             }
         }
@@ -67,11 +64,30 @@ public class ProductBasket {
     // Метод, подсчета количества товаров специального типа.
     public void getCountSpecialProduct() {
         int countSpecialProduct = 0;
-        for (int i = 0; i < basket.size(); i++) {
-            if (basket.get(i).isSpecial()) {
+        Iterator<Product> iterator = basket.iterator();
+        while (iterator.hasNext()) {
+            Product element = iterator.next();
+            if (element.isSpecial()) {
                 countSpecialProduct++;
             }
         }
         System.out.println("Специальных товаров: " + countSpecialProduct);
+    }
+
+    // Метод удаления продукта по имени из корзины
+    public List<Product> removeProduct(String name) {
+        List<Product> removedProduct = new LinkedList<>();
+        Iterator<Product> iterator = basket.iterator();
+        while (iterator.hasNext()) {
+            Product product = iterator.next();
+            if (product != null && product.getNameProduct().equals(name)) {
+                removedProduct.add(product);
+                iterator.remove();
+            }
+        }
+        if (removedProduct.isEmpty()) {
+            System.out.println("Список пуст");
+        }
+        return removedProduct;
     }
 }
