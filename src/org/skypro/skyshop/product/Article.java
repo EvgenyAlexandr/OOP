@@ -4,6 +4,7 @@ public class Article implements Searchable {
     private final String articleName; 		// Название Статьи
     private final String articleText;		// Текст статьи
 
+    // Конструктор
     public Article(String articleName, String articleText) {
         this.articleName = articleName;
         this.articleText = articleText;

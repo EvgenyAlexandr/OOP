@@ -1,11 +1,16 @@
 package org.skypro.skyshop.product;
 
 public class SimpleProduct extends Product   {
-    private final double price;
+    private final double price; // Цена
 
-    public SimpleProduct(String name, double price) {
+    public SimpleProduct(String name, double price) throws IllegalAccessException {
         super(name);
-        this.price = price;
+        //  Цена должна быть строго больше 0
+        if (price > 0) {
+            this.price = price;
+        } else {
+            throw new IllegalAccessException("Введена некорректная цена продукта");
+        }
     }
 
     @Override
