@@ -31,7 +31,9 @@ public class ProductBasket {
     }
 
     // Метод, который печатает содержимое корзины
-    public void printContents() {
+    public void printBacket() {
+        System.out.println("\nСодержимое корзины:");
+
         Iterator<Product> iterator = basket.iterator();
         while (iterator.hasNext()) {
             Product element = iterator.next();
@@ -75,7 +77,7 @@ public class ProductBasket {
     }
 
     // Метод удаления продукта по имени из корзины
-    public List<Product> removeProduct(String name) {
+    public void removeProduct(String name) {
         List<Product> removedProduct = new LinkedList<>();
         Iterator<Product> iterator = basket.iterator();
         while (iterator.hasNext()) {
@@ -85,9 +87,17 @@ public class ProductBasket {
                 iterator.remove();
             }
         }
+
+        System.out.println("Из корзины удалены товары:");
+
         if (removedProduct.isEmpty()) {
             System.out.println("Список пуст");
+        } else {
+            iterator = removedProduct.iterator();
+            while (iterator.hasNext()) {
+                Product element = iterator.next();
+                System.out.println(element);
+            }
         }
-        return removedProduct;
     }
 }
