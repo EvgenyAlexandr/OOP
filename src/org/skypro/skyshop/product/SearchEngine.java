@@ -3,7 +3,6 @@ package org.skypro.skyshop.product;
 import org.skypro.skyshop.excrption.BestResultNotFound;
 import java.util.*;
 
-
 public class SearchEngine {
     private final List<Searchable> searchableObjects; // Список элементов для поиска
     private final int capacity;                      // Максимальная вместимость
@@ -14,7 +13,6 @@ public class SearchEngine {
             throw new IllegalArgumentException("Размер списка должен быть положительным числом");
         }
         this.capacity = capacity;
-        //this.searchableObjects = new LinkedList<>(capacity);
         this.searchableObjects = new ArrayList<>(capacity);
     }
 
@@ -27,12 +25,8 @@ public class SearchEngine {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(lowerKeyword)) {
-                    if (searchResult.size() < 5) { // Ограничиваем 5 результатами
-                        searchResult.add(searchable);
-                        System.out.println(searchable.getStringRepresentation());
-                    } else {
-                        break;
-                    }
+                    searchResult.add(searchable);
+                    System.out.println(searchable.getStringRepresentation());
                 }
             }
         }
@@ -93,39 +87,4 @@ public class SearchEngine {
             System.out.println((i + 1) + ". " + searchable.getStringRepresentation());
         }
     }
-
-//    // Дополнительные полезные методы
-//    public int getSize() {
-//        return searchableObjects.size();
-//    }
-//
-//    public int getCapacity() {
-//        return capacity;
-//    }
-//
-//    public boolean isEmpty() {
-//        return searchableObjects.isEmpty();
-//    }
-//
-//    public boolean isFull() {
-//        return searchableObjects.size() >= capacity;
-//    }
-//
-//    // Удаление элемента
-//    public boolean removeSearchable(Searchable searchable) {
-//        return searchableObjects.remove(searchable);
-//    }
-//
-//    // Очистка списка
-//    public void clearSearchable() {
-//        searchableObjects.clear();
-//    }
-//
-//    // Получение элемента по индексу
-//    public Searchable getSearchable(int index) {
-//        if (index < 0 || index >= searchableObjects.size()) {
-//            throw new IndexOutOfBoundsException("Индекс: " + index + ", Размер: " + searchableObjects.size());
-//        }
-//        return searchableObjects.get(index);
-//    }
 }

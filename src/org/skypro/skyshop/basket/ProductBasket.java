@@ -10,7 +10,6 @@ public class ProductBasket {
     // Конструктор
     public ProductBasket() {
         basket = new LinkedList<>();
-        //basket = new ArrayList<>();
     }
 
     // Метод добавления продукта в корзину
@@ -60,7 +59,6 @@ public class ProductBasket {
     public void clearBasket() {
         basket.clear();
         System.out.println("Корзина очищена");
-
     }
 
     // Метод, подсчета количества товаров специального типа.

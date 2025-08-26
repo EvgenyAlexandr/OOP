@@ -145,14 +145,16 @@ public class App {
         basket.printBacket();
 
         // Демонстрация удаления существующего товара из корзины.
-        System.out.println();
+        System.out.println("\nДемонстрация удаления существующего товара из корзины.");
         basket.removeProduct("Лимон");
         basket.printBacket();
 
         // Демонстрация удаления не существующего товара из корзины.
-        System.out.println();
+        System.out.println("\nДемонстрация удаления не существующего товара из корзины");
         basket.removeProduct("Шашлык");
         basket.printBacket();
+
+
 
    }
 }
