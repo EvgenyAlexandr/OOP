@@ -59,7 +59,8 @@ public class SearchEngine {
         }
 
         if (bestResult == null) {
-            throw new BestResultNotFound("Не найдено подходящих результатов для: " + keyword);
+            // Не найдено подходящих результатов
+            throw new BestResultNotFound(keyword);
         }
 
         System.out.println(bestResult.getStringRepresentation());
