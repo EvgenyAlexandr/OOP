@@ -77,7 +77,7 @@ public class ProductBasket {
     }
 
     // Метод удаления продукта по имени из корзины
-    public void removeProduct(String name) {
+    public List<Product> removeProduct(String name) {
         List<Product> removedProduct = new LinkedList<>();
         Iterator<Product> iterator = basket.iterator();
         while (iterator.hasNext()) {
@@ -93,11 +93,13 @@ public class ProductBasket {
         if (removedProduct.isEmpty()) {
             System.out.println("Список пуст");
         } else {
+            // Отображаем список удаляемых товаров.
             iterator = removedProduct.iterator();
             while (iterator.hasNext()) {
                 Product element = iterator.next();
                 System.out.println(element);
             }
         }
+        return removedProduct;
     }
 }

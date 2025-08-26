@@ -1,6 +1,8 @@
 package org.skypro.skyshop.product;
 
 import org.skypro.skyshop.excrption.BestResultNotFound;
+import java.util.*;
+
 
 public class SearchEngine {
     private final Searchable[] searchables; // Массив элементов для поиска
