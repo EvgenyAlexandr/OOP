@@ -26,7 +26,6 @@ public class App {
         basket.addProduct(product6);
 
         // 3. Печать содержимого корзины с несколькими товарами.
-        System.out.println();
         basket.printBacket();
 
         // 4. Получение стоимости корзины с несколькими товарами.
@@ -41,11 +40,9 @@ public class App {
         System.out.println("Товар 'Банан': " + basket.containsProduct("Банан"));
 
         // 7. Очистка корзины.
-        System.out.println();
         basket.clearBasket();
 
         // 8. Печать содержимого пустой корзины.
-        System.out.println();
         basket.printBacket();
 
         // 9. Получение стоимости пустой корзины.
