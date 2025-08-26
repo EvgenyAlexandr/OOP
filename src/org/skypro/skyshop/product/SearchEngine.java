@@ -14,6 +14,7 @@ public class SearchEngine {
             throw new IllegalArgumentException("Размер списка должен быть положительным числом");
         }
         this.capacity = capacity;
+        //this.searchableObjects = new LinkedList<>(capacity);
         this.searchableObjects = new ArrayList<>(capacity);
     }
 

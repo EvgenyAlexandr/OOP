@@ -9,8 +9,8 @@ public class ProductBasket {
 
     // Конструктор
     public ProductBasket() {
-        //basket = new LinkedList<>();
-        basket = new ArrayList<>();
+        basket = new LinkedList<>();
+        //basket = new ArrayList<>();
     }
 
     // Метод добавления продукта в корзину
