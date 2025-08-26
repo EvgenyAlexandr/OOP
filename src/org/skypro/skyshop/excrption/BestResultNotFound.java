@@ -1,8 +1,9 @@
 package org.skypro.skyshop.excrption;
 
 public class BestResultNotFound extends Exception{
-    public BestResultNotFound() {
-        super ("Ничего подходящего не нашлось");
+    public BestResultNotFound(String str ) {
+        //super ("Ничего подходящего не нашлось");
+        super (str);
     }
 }
 
