@@ -5,7 +5,7 @@ import java.util.*;
 
 public class ProductBasket {
 
-    private final List<Product> basket;
+    private final List<Product> basket; // Лист - Продукты в корзине.
 
     // Конструктор
     public ProductBasket() {

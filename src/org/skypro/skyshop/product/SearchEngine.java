@@ -5,15 +5,15 @@ import java.util.*;
 
 
 public class SearchEngine {
-    private final Searchable[] searchables; // Массив элементов для поиска
+    //private final Searchable[] searchables; // Массив элементов для поиска
+    private final List<Searchable> searchableObjects; // Лист - элементов для поиска
     private int size;	                    // Количество элементов
 
     // Конструктор
-    public SearchEngine(int capacity) {
-        if (capacity <= 0) {
-            throw new IllegalArgumentException("Размер массива должен быть положительным числом");
-        }
-        this.searchables = new Searchable[capacity];
+    public SearchEngine() {
+
+        //searchableObjects = new LinkedList<>();
+        searchableObjects = new ArrayList<>();
         this.size = 0;
     }
 
