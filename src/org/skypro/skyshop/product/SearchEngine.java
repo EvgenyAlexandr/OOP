@@ -4,8 +4,8 @@ import org.skypro.skyshop.excrption.BestResultNotFound;
 import java.util.*;
 
 public class SearchEngine {
-    private final List<Searchable> searchableObjects; // Список элементов для поиска
-    private final int capacity;                      // Максимальная вместимость
+    private final Map<String, Searchable> searchableObjects; // Map элементов для поиска
+    private final int capacity;                              // Максимальная вместимость
 
     // Конструктор
     public SearchEngine(int capacity) {
@@ -13,7 +13,7 @@ public class SearchEngine {
             throw new IllegalArgumentException("Размер списка должен быть положительным числом");
         }
         this.capacity = capacity;
-        this.searchableObjects = new ArrayList<>(capacity);
+        this.searchableObjects = new HashMap<>();
     }
 
     // Поиск по ключевому слову
@@ -21,7 +21,7 @@ public class SearchEngine {
         List<Searchable> searchResult = new ArrayList<>();
         String lowerKeyword = keyword.toLowerCase();
 
-        for (Searchable searchable : searchableObjects) {
+        for (Searchable searchable : searchableObjects.values()) {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(lowerKeyword)) {
@@ -39,7 +39,7 @@ public class SearchEngine {
         int maxScore = 0;
         String lowerKeyword = keyword.toLowerCase();
 
-        for (Searchable searchable : searchableObjects) {
+        for (Searchable searchable : searchableObjects.values()) {
             if (searchable != null) {
                 String str = searchable.getSearchTerm().toLowerCase();
                 int score = 0;
@@ -70,7 +70,7 @@ public class SearchEngine {
     // Добавление в список
     public void addToSearchable(Searchable searchable) {
         if (searchableObjects.size() < capacity) {
-            searchableObjects.add(searchable);
+            searchableObjects.put(searchable.getSearchTerm(), searchable);
         } else {
             System.out.println("Список переполнен. Максимальная вместимость: " + capacity);
         }
@@ -88,4 +88,13 @@ public class SearchEngine {
             System.out.println((i + 1) + ". " + searchable.getStringRepresentation());
         }
     }
+
+    // Метод поиска, возвращающий отсортированную по именам мапу
+    public Map<String, Searchable> getSortedSearchableObjects() {
+        // Создаем TreeMap для автоматической сортировки по ключам (именам)
+        Map<String, Searchable> sortedMap = new TreeMap<>(searchableObjects);
+        return sortedMap;
+    }
+
+
 }
