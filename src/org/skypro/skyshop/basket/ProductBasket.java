@@ -5,26 +5,27 @@ import java.util.*;
 
 public class ProductBasket {
 
-    private final List<Product> basket; // Лист - Продукты в корзине.
+    private final Map<String, List<Product>> basket; // Map - Продукты в корзине.
 
     // Конструктор
     public ProductBasket() {
-        basket = new LinkedList<>();
+        basket = new HashMap<>();
     }
 
     // Метод добавления продукта в корзину
     public void addProduct(Product product) {
-        basket.add(product);
+        String productName = product.getNameProduct();
+        basket.computeIfAbsent(productName, k -> new ArrayList<>()).add(product);
         System.out.println("Продукт добавлен в корзину");
     }
 
     // Метод получения общей стоимости корзины
     public double getTotalCost() {
-        Iterator<Product> iterator = basket.iterator();
         double totalCost = 0;
-        while (iterator.hasNext()) {
-            Product element = iterator.next();
-            totalCost += element.getPrice();
+        for (List<Product> products : basket.values()) {
+            for (Product product : products) {
+                totalCost += product.getPrice();
+            }
         }
         return totalCost;
     }
@@ -33,10 +34,10 @@ public class ProductBasket {
     public void printBacket() {
         System.out.println("\nСодержимое корзины:");
 
-        Iterator<Product> iterator = basket.iterator();
-        while (iterator.hasNext()) {
-            Product element = iterator.next();
-            System.out.println(element);
+        for (List<Product> products : basket.values()) {
+            for (Product product : products) {
+                System.out.println(product);
+            }
         }
         System.out.println("Итого: " + getTotalCost());
         // Вызываем метод - Подсчета количества товаров специального типа.
@@ -45,14 +46,7 @@ public class ProductBasket {
 
     // Метод, проверяющий продукт в корзине по имени
     public boolean containsProduct(String name) {
-        Iterator<Product> iterator = basket.iterator();
-        while (iterator.hasNext()) {
-            Product element = iterator.next();
-            if (element.getNameProduct().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+        return basket.containsKey(name);
     }
 
     // Метод, Очистки корзины
@@ -64,11 +58,11 @@ public class ProductBasket {
     // Метод, подсчета количества товаров специального типа.
     public void getCountSpecialProduct() {
         int countSpecialProduct = 0;
-        Iterator<Product> iterator = basket.iterator();
-        while (iterator.hasNext()) {
-            Product element = iterator.next();
-            if (element.isSpecial()) {
-                countSpecialProduct++;
+        for (List<Product> products : basket.values()) {
+            for (Product product : products) {
+                if (product.isSpecial()) {
+                    countSpecialProduct++;
+                }
             }
         }
         System.out.println("Специальных товаров: " + countSpecialProduct);
@@ -76,26 +70,17 @@ public class ProductBasket {
 
     // Метод удаления продукта по имени из корзины
     public List<Product> removeProduct(String name) {
-        List<Product> removedProduct = new LinkedList<>();
-        Iterator<Product> iterator = basket.iterator();
-        while (iterator.hasNext()) {
-            Product product = iterator.next();
-            if (product != null && product.getNameProduct().equals(name)) {
-                removedProduct.add(product);
-                iterator.remove();
-            }
-        }
+        List<Product> removedProduct = basket.remove(name);
 
         System.out.println("Из корзины удалены товары:");
 
-        if (removedProduct.isEmpty()) {
+        if (removedProduct == null || removedProduct.isEmpty()) {
             System.out.println("Список пуст");
+            return new ArrayList<>();
         } else {
             // Отображаем список удаляемых товаров.
-            iterator = removedProduct.iterator();
-            while (iterator.hasNext()) {
-                Product element = iterator.next();
-                System.out.println(element);
+            for (Product product : removedProduct) {
+                System.out.println(product);
             }
         }
         return removedProduct;
