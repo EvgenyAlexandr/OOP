@@ -83,9 +83,9 @@ public class SearchEngine {
             return;
         }
 
-        for (int i = 0; i < searchableObjects.size(); i++) {
-            Searchable searchable = searchableObjects.get(i);
-            System.out.println((i + 1) + ". " + searchable.getStringRepresentation());
+        int i = 1;
+        for (Searchable searchable : searchableObjects.values()) {
+            System.out.println((i++) + ". " + searchable.getStringRepresentation());
         }
     }
 
