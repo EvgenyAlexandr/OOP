@@ -96,5 +96,23 @@ public class SearchEngine {
         return sortedMap;
     }
 
+    // Альтернативный метод поиска с возвратом отсортированной мапы (по требованию)
+    public Map<String, Searchable> searchAndGetSorted(String keyword) {
+        Map<String, Searchable> resultMap = new TreeMap<>(); // TreeMap для автоматической сортировки
+        String lowerKeyword = keyword.toLowerCase();
+
+        for (Map.Entry<String, Searchable> entry : searchableObjects.entrySet()) {
+            Searchable searchable = entry.getValue();
+            if (searchable != null) {
+                String searchTerm = searchable.getSearchTerm();
+                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
+                    resultMap.put(entry.getKey(), searchable);
+                }
+            }
+        }
+
+        return resultMap;
+    }
+
 
 }
