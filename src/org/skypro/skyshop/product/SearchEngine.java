@@ -21,10 +21,25 @@ public class SearchEngine {
 
     // Поиск по ключевому слову
     public Set<Searchable> searchByKeyword(String keyword) {
-        return searchableObjects.stream()
-                .filter(searchable -> searchable != null &&
-                        searchable.getSearchTerm().toLowerCase().contains(keyword.toLowerCase()))
-                .collect(Collectors.toCollection(() -> new TreeSet<>(new SearchableComparator())));
+        Set<Searchable> searchResult = new HashSet<>();
+        String lowerKeyword = keyword.toLowerCase();
+
+        for (Searchable searchable : searchableObjects) {
+            if (searchable != null) {
+                String searchTerm = searchable.getSearchTerm();
+                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
+                    searchResult.add(searchable);
+                    System.out.println(searchable.getStringRepresentation());
+                }
+            }
+        }
+
+        // Если нужно вернуть отсортированный результат
+        List<Searchable> sortedList = new ArrayList<>(searchResult);
+        sortedList.sort(new SearchableComparator());
+
+        return new LinkedHashSet<>(sortedList); // Сохраняем порядок сортировки
+
     }
 
 
