@@ -14,7 +14,6 @@ public abstract class Product implements Searchable {
         this.nameProduct = name;
     }
 
-
     // Геттеры
     @Override
     public String getNameProduct() {
