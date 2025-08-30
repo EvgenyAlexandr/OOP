@@ -4,8 +4,10 @@ import org.skypro.skyshop.excrption.BestResultNotFound;
 import java.util.*;
 
 public class SearchEngine {
-    private final Map<String, Searchable> searchableObjects; // Map элементов для поиска
-    private final int capacity;                              // Максимальная вместимость
+
+    private final Set<Searchable> searchableObjects; // Set элементов для поиска
+    private final int capacity;                      // Максимальная вместимость
+
 
     // Конструктор
     public SearchEngine(int capacity) {
@@ -13,15 +15,15 @@ public class SearchEngine {
             throw new IllegalArgumentException("Размер списка должен быть положительным числом");
         }
         this.capacity = capacity;
-        this.searchableObjects = new HashMap<>();
+        this.searchableObjects = new HashSet<>();
     }
 
     // Поиск по ключевому слову
-    public List<Searchable> searchByKeyword(String keyword) {
-        List<Searchable> searchResult = new ArrayList<>();
+    public Set<Searchable> searchByKeyword(String keyword) {
+        Set<Searchable> searchResult = new HashSet<>();
         String lowerKeyword = keyword.toLowerCase();
 
-        for (Searchable searchable : searchableObjects.values()) {
+        for (Searchable searchable : searchableObjects) {
             if (searchable != null) {
                 String searchTerm = searchable.getSearchTerm();
                 if (searchTerm.toLowerCase().contains(lowerKeyword)) {
@@ -39,7 +41,7 @@ public class SearchEngine {
         int maxScore = 0;
         String lowerKeyword = keyword.toLowerCase();
 
-        for (Searchable searchable : searchableObjects.values()) {
+        for (Searchable searchable : searchableObjects) {
             if (searchable != null) {
                 String str = searchable.getSearchTerm().toLowerCase();
                 int score = 0;
@@ -67,24 +69,24 @@ public class SearchEngine {
         return bestResult;
     }
 
-    // Добавление в список
+    // Добавление в коллекцию
     public void addToSearchable(Searchable searchable) {
         if (searchableObjects.size() < capacity) {
-            searchableObjects.put(searchable.getSearchTerm(), searchable);
+            searchableObjects.add(searchable);
         } else {
-            System.out.println("Список переполнен. Максимальная вместимость: " + capacity);
+            System.out.println("Коллекция переполнена. Максимальная вместимость: " + capacity);
         }
     }
 
-    // Отображаем все элементы списка
+    // Отображаем все элементы коллекции
     public void showSearchable() {
         if (searchableObjects.isEmpty()) {
-            System.out.println("Список пуст");
+            System.out.println("Коллекция пуста");
             return;
         }
 
         int i = 1;
-        for (Searchable searchable : searchableObjects.values()) {
+        for (Searchable searchable : searchableObjects) {
             System.out.println((i++) + ". " + searchable.getStringRepresentation());
         }
     }
