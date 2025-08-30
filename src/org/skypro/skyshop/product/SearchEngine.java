@@ -2,6 +2,7 @@ package org.skypro.skyshop.product;
 
 import org.skypro.skyshop.excrption.BestResultNotFound;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class SearchEngine {
 
@@ -19,21 +20,31 @@ public class SearchEngine {
     }
 
     // Поиск по ключевому слову
-    public Set<Searchable> searchByKeyword(String keyword) {
-        Set<Searchable> searchResult = new HashSet<>();
-        String lowerKeyword = keyword.toLowerCase();
+//    public Set<Searchable> searchByKeyword(String keyword) {
+//        Set<Searchable> searchResult = new HashSet<>();
+//        String lowerKeyword = keyword.toLowerCase();
+//
+//        for (Searchable searchable : searchableObjects) {
+//            if (searchable != null) {
+//                String searchTerm = searchable.getSearchTerm();
+//                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
+//                    searchResult.add(searchable);
+//                    System.out.println(searchable.getStringRepresentation());
+//                }
+//            }
+//        }
+//        return searchResult;
+//    }
 
-        for (Searchable searchable : searchableObjects) {
-            if (searchable != null) {
-                String searchTerm = searchable.getSearchTerm();
-                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
-                    searchResult.add(searchable);
-                    System.out.println(searchable.getStringRepresentation());
-                }
-            }
-        }
-        return searchResult;
+    public Set<Searchable> searchByKeyword(String keyword) {
+        return searchableObjects.stream()
+                .filter(searchable -> searchable != null &&
+                        searchable.getSearchTerm().toLowerCase().contains(keyword.toLowerCase()))
+                .collect(Collectors.toCollection(() -> new TreeSet<>(new SearchableComparator())));
     }
+
+
+
 
     // Поиск самого подходящего элемента
     public Searchable findBestMatch(String keyword) throws BestResultNotFound {
@@ -90,5 +101,4 @@ public class SearchEngine {
             System.out.println((i++) + ". " + searchable.getStringRepresentation());
         }
     }
-
 }
