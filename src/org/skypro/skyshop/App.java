@@ -82,77 +82,77 @@ public class App {
         System.out.println("Результат поиска:");
         search.searchByKeyword(keyword);
 
-        // ===============================
-        System.out.println("====================================================");
-        System.out.println("Тема - Исключения:");
-        // Демонстрация работы исключений.
-        try {
-            Product product7 = new SimpleProduct("Лимон", -64.0);
-        } catch (IllegalAccessException exceptions) {
-            System.out.println(exceptions.getMessage());
-        }
-
-        try {
-            Product product8 = new DiscountedProduct("Йогурт", -80.0, 15);
-        } catch (IllegalAccessException exceptions) {
-            System.out.println(exceptions.getMessage());
-        }
-
-        try {
-            Product product9 = new DiscountedProduct("Йогурт", 80.0, -15);
-        } catch (IllegalAccessException exceptions) {
-            System.out.println(exceptions.getMessage());
-        }
-
-        try {
-            Product product10 = new FixPriceProduct(" ");
-        } catch (IllegalAccessException exceptions) {
-            System.out.println(exceptions.getMessage());
-        }
-
-        // Поиск самого подходящего элемента
-        System.out.println("\nПоиск самого подходящего элемента: " + keyword);
-        System.out.println("Результат поиска:");
-        try {
-            search.findBestMatch(keyword);
-        } catch (BestResultNotFound e) {
-            System.out.println(e.getMessage());
-        }
-
-        // Поиск элемента которого нет
-        keyword = "Мотоцикл";
-        System.out.println("\nПоиск того чего нет: " + keyword);
-        System.out.println("Результат поиска:");
-        try {
-            search.findBestMatch(keyword);
-        } catch (BestResultNotFound e) {
-            System.out.println(e.getMessage());
-        }
-
-        // ===============================
-        System.out.println("====================================================");
-        System.out.println("Тема - Листы:");
-
-        // 1. Добавление продукта в корзину.
-        basket.addProduct(product1);
-        basket.addProduct(product2);
-        basket.addProduct(product3);
-        basket.addProduct(product4);
-        basket.addProduct(product5);
-        basket.addProduct(product6);
-
-        // 3. Печать содержимого корзины.
-        basket.printBacket();
-
-        // Демонстрация удаления существующего товара из корзины.
-        System.out.println("\nДемонстрация удаления существующего товара из корзины.");
-        basket.removeProduct("Лимон");
-        basket.printBacket();
-
-        // Демонстрация удаления не существующего товара из корзины.
-        System.out.println("\nДемонстрация удаления не существующего товара из корзины");
-        basket.removeProduct("Шашлык");
-        basket.printBacket();
+//        // ===============================
+//        System.out.println("====================================================");
+//        System.out.println("Тема - Исключения:");
+//        // Демонстрация работы исключений.
+//        try {
+//            Product product7 = new SimpleProduct("Лимон", -64.0);
+//        } catch (IllegalAccessException exceptions) {
+//            System.out.println(exceptions.getMessage());
+//        }
+//
+//        try {
+//            Product product8 = new DiscountedProduct("Йогурт", -80.0, 15);
+//        } catch (IllegalAccessException exceptions) {
+//            System.out.println(exceptions.getMessage());
+//        }
+//
+//        try {
+//            Product product9 = new DiscountedProduct("Йогурт", 80.0, -15);
+//        } catch (IllegalAccessException exceptions) {
+//            System.out.println(exceptions.getMessage());
+//        }
+//
+//        try {
+//            Product product10 = new FixPriceProduct(" ");
+//        } catch (IllegalAccessException exceptions) {
+//            System.out.println(exceptions.getMessage());
+//        }
+//
+//        // Поиск самого подходящего элемента
+//        System.out.println("\nПоиск самого подходящего элемента: " + keyword);
+//        System.out.println("Результат поиска:");
+//        try {
+//            search.findBestMatch(keyword);
+//        } catch (BestResultNotFound e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        // Поиск элемента которого нет
+//        keyword = "Мотоцикл";
+//        System.out.println("\nПоиск того чего нет: " + keyword);
+//        System.out.println("Результат поиска:");
+//        try {
+//            search.findBestMatch(keyword);
+//        } catch (BestResultNotFound e) {
+//            System.out.println(e.getMessage());
+//        }
+//
+//        // ===============================
+//        System.out.println("====================================================");
+//        System.out.println("Тема - Листы:");
+//
+//        // 1. Добавление продукта в корзину.
+//        basket.addProduct(product1);
+//        basket.addProduct(product2);
+//        basket.addProduct(product3);
+//        basket.addProduct(product4);
+//        basket.addProduct(product5);
+//        basket.addProduct(product6);
+//
+//        // 3. Печать содержимого корзины.
+//        basket.printBacket();
+//
+//        // Демонстрация удаления существующего товара из корзины.
+//        System.out.println("\nДемонстрация удаления существующего товара из корзины.");
+//        basket.removeProduct("Лимон");
+//        basket.printBacket();
+//
+//        // Демонстрация удаления не существующего товара из корзины.
+//        System.out.println("\nДемонстрация удаления не существующего товара из корзины");
+//        basket.removeProduct("Шашлык");
+//        basket.printBacket();
 
 
 
