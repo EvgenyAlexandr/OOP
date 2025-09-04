@@ -44,7 +44,6 @@ public class SearchEngine {
 
 
 
-
     // Поиск самого подходящего элемента
     public Searchable findBestMatch(String keyword) throws BestResultNotFound {
         Searchable bestResult = null;
