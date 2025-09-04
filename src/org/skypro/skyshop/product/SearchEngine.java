@@ -20,27 +20,46 @@ public class SearchEngine {
     }
 
     // Поиск по ключевому слову
+//    public Set<Searchable> searchByKeyword(String keyword) {
+//        Set<Searchable> searchResult = new HashSet<>();
+//        String lowerKeyword = keyword.toLowerCase();
+//
+//        for (Searchable searchable : searchableObjects) {
+//            if (searchable != null) {
+//                String searchTerm = searchable.getSearchTerm();
+//                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
+//                    searchResult.add(searchable);
+//                    System.out.println(searchable.getStringRepresentation());
+//                }
+//            }
+//        }
+//
+//        // Если нужно вернуть отсортированный результат
+//        List<Searchable> sortedList = new ArrayList<>(searchResult);
+//        sortedList.sort(new SearchableComparator());
+//
+//        return new LinkedHashSet<>(sortedList); // Сохраняем порядок сортировки
+//
+//    }
+
+    // Поиск по ключевому слову
     public Set<Searchable> searchByKeyword(String keyword) {
-        Set<Searchable> searchResult = new HashSet<>();
         String lowerKeyword = keyword.toLowerCase();
 
-        for (Searchable searchable : searchableObjects) {
-            if (searchable != null) {
-                String searchTerm = searchable.getSearchTerm();
-                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
-                    searchResult.add(searchable);
-                    System.out.println(searchable.getStringRepresentation());
-                }
-            }
-        }
-
-        // Если нужно вернуть отсортированный результат
-        List<Searchable> sortedList = new ArrayList<>(searchResult);
-        sortedList.sort(new SearchableComparator());
-
-        return new LinkedHashSet<>(sortedList); // Сохраняем порядок сортировки
-
+        return searchableObjects.stream()
+                .filter(Objects::nonNull)               // Убирает null значения
+                .filter(searchable -> {       // Оставляет только элементы, содержащие ключевое слово
+                    String searchTerm = searchable.getSearchTerm();
+                    return searchTerm.toLowerCase().contains(lowerKeyword);
+                })
+                // Вывод информации
+                .peek(searchable -> System.out.println(searchable.getStringRepresentation()))
+                .collect(Collectors.toCollection(() ->  // создает TreeSet с компаратором
+                        new TreeSet<>(new SearchableComparator())
+                ));
     }
+
+
 
 
 
@@ -77,6 +96,8 @@ public class SearchEngine {
         System.out.println(bestResult.getStringRepresentation());
         return bestResult;
     }
+
+
 
     // Добавление в коллекцию
     public void addToSearchable(Searchable searchable) {

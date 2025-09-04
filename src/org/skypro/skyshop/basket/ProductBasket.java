@@ -21,27 +21,27 @@ public class ProductBasket {
 
     // Метод получения общей стоимости корзины
     public double getTotalCost() {
-        double totalCost = 0;
-        for (List<Product> products : basket.values()) {
-            for (Product product : products) {
-                totalCost += product.getPrice();
-            }
-        }
-        return totalCost;
+        return basket.values().stream()
+                .flatMap(Collection::stream)
+                .mapToDouble(Product::getPrice)
+                .sum();
     }
+
+
 
     // Метод, который печатает содержимое корзины
     public void printBacket() {
         System.out.println("\nСодержимое корзины:");
 
-        for (List<Product> products : basket.values()) {
-            for (Product product : products) {
-                System.out.println(product);
-            }
-        }
+        basket.values().stream()
+                .flatMap(Collection::stream)
+                .forEach(System.out::println);
+
         System.out.println("Итого: " + getTotalCost());
+
         // Вызываем метод - Подсчета количества товаров специального типа.
-        getCountSpecialProduct();
+        int specialCount = getCountSpecialProduct();
+        System.out.println("Специальных товаров: " + specialCount);
     }
 
     // Метод, проверяющий продукт в корзине по имени
@@ -56,16 +56,11 @@ public class ProductBasket {
     }
 
     // Метод, подсчета количества товаров специального типа.
-    public void getCountSpecialProduct() {
-        int countSpecialProduct = 0;
-        for (List<Product> products : basket.values()) {
-            for (Product product : products) {
-                if (product.isSpecial()) {
-                    countSpecialProduct++;
-                }
-            }
-        }
-        System.out.println("Специальных товаров: " + countSpecialProduct);
+    private int getCountSpecialProduct() {
+        return (int) basket.values().stream()
+                .flatMap(Collection::stream)
+                .filter(Product::isSpecial)
+                .count();
     }
 
     // Метод удаления продукта по имени из корзины
@@ -79,9 +74,7 @@ public class ProductBasket {
             return new ArrayList<>();
         } else {
             // Отображаем список удаляемых товаров.
-            for (Product product : removedProduct) {
-                System.out.println(product);
-            }
+            removedProduct.forEach(System.out::println);
         }
         return removedProduct;
     }
