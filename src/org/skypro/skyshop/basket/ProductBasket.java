@@ -12,12 +12,14 @@ public class ProductBasket {
         basket = new HashMap<>();
     }
 
+
     // Метод добавления продукта в корзину
     public void addProduct(Product product) {
         String productName = product.getNameProduct();
         basket.computeIfAbsent(productName, k -> new ArrayList<>()).add(product);
         System.out.println("Продукт добавлен в корзину");
     }
+
 
     // Метод получения общей стоимости корзины
     public double getTotalCost() {
@@ -26,7 +28,6 @@ public class ProductBasket {
                 .mapToDouble(Product::getPrice)
                 .sum();
     }
-
 
 
     // Метод, который печатает содержимое корзины
@@ -44,16 +45,19 @@ public class ProductBasket {
         System.out.println("Специальных товаров: " + specialCount);
     }
 
+
     // Метод, проверяющий продукт в корзине по имени
     public boolean containsProduct(String name) {
         return basket.containsKey(name);
     }
+
 
     // Метод, Очистки корзины
     public void clearBasket() {
         basket.clear();
         System.out.println("Корзина очищена");
     }
+
 
     // Метод, подсчета количества товаров специального типа.
     private int getCountSpecialProduct() {
@@ -62,6 +66,7 @@ public class ProductBasket {
                 .filter(Product::isSpecial)
                 .count();
     }
+
 
     // Метод удаления продукта по имени из корзины
     public List<Product> removeProduct(String name) {

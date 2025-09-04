@@ -9,7 +9,6 @@ public class SearchEngine {
     private final Set<Searchable> searchableObjects; // Set элементов для поиска
     private final int capacity;                      // Максимальная вместимость
 
-
     // Конструктор
     public SearchEngine(int capacity) {
         if (capacity <= 0) {
@@ -19,28 +18,6 @@ public class SearchEngine {
         this.searchableObjects = new HashSet<>();
     }
 
-    // Поиск по ключевому слову
-//    public Set<Searchable> searchByKeyword(String keyword) {
-//        Set<Searchable> searchResult = new HashSet<>();
-//        String lowerKeyword = keyword.toLowerCase();
-//
-//        for (Searchable searchable : searchableObjects) {
-//            if (searchable != null) {
-//                String searchTerm = searchable.getSearchTerm();
-//                if (searchTerm.toLowerCase().contains(lowerKeyword)) {
-//                    searchResult.add(searchable);
-//                    System.out.println(searchable.getStringRepresentation());
-//                }
-//            }
-//        }
-//
-//        // Если нужно вернуть отсортированный результат
-//        List<Searchable> sortedList = new ArrayList<>(searchResult);
-//        sortedList.sort(new SearchableComparator());
-//
-//        return new LinkedHashSet<>(sortedList); // Сохраняем порядок сортировки
-//
-//    }
 
     // Поиск по ключевому слову
     public Set<Searchable> searchByKeyword(String keyword) {
@@ -58,9 +35,6 @@ public class SearchEngine {
                         new TreeSet<>(new SearchableComparator())
                 ));
     }
-
-
-
 
 
     // Поиск самого подходящего элемента
@@ -98,7 +72,6 @@ public class SearchEngine {
     }
 
 
-
     // Добавление в коллекцию
     public void addToSearchable(Searchable searchable) {
         if (searchableObjects.size() < capacity) {
@@ -107,6 +80,7 @@ public class SearchEngine {
             System.out.println("Коллекция переполнена. Максимальная вместимость: " + capacity);
         }
     }
+
 
     // Отображаем все элементы коллекции
     public void showSearchable() {
